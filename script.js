@@ -23,3 +23,36 @@ colorBtn.addEventListener('click', () => {
     const randomText = `hsl(${Math.floor(Math.random() * 360)}, 50%, 20%)`;
     document.body.style.color = randomText;
 });
+// Text color button
+const textBtn = document.getElementById('textBtn');
+textBtn.addEventListener('click', () => {
+    const randomText = `hsl(${Math.floor(Math.random() * 360)}, 50%, 20%)`;
+    document.body.style.color = randomText;
+});
+
+// Alert button
+const alertBtn = document.getElementById('alertBtn');
+alertBtn.addEventListener('click', () => {
+    alert("Surprise! 🎉");
+});
+
+// Random quote button
+const quoteBtn = document.getElementById('quoteBtn');
+const quotes = [
+    "Keep coding, keep learning!",
+    "Experiment. Fail. Try again.",
+    "Creativity is intelligence having fun.",
+    "Web design is your playground."
+];
+quoteBtn.addEventListener('click', () => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    alert(randomQuote);
+});
+
+// Click counter button
+const counterBtn = document.getElementById('counterBtn');
+let count = 0;
+counterBtn.addEventListener('click', () => {
+    count++;
+    counterBtn.textContent = `Click Me! (${count})`;
+});
