@@ -12,7 +12,7 @@ window.addEventListener('scroll', () => {
 
 // Buttons
 const colorBtn = document.getElementById('colorBtn');
-const alertBtn = document.getElementById('alertBtn');
+
 
 colorBtn.addEventListener('click', () => {
     // Random background color
