@@ -1,63 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
-
-    // Scroll fade-in
-    const sections = document.querySelectorAll('section');
-    window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY + window.innerHeight * 0.8;
-        sections.forEach(section => {
-            if (scrollPos > section.offsetTop) {
-                section.classList.add('visible');
-            }
-        });
-    });
-
-    // Buttons
-    const colorBtn = document.getElementById('colorBtn');
-    const textBtn = document.getElementById('textBtn');
-    const alertBtn = document.getElementById('alertBtn');
-    const quoteBtn = document.getElementById('quoteBtn');
-    const counterBtn = document.getElementById('counterBtn');
-    const messageArea = document.getElementById('messageArea');
-
-    // Function to display message inside the website
-    function showMessage(message) {
-        messageArea.textContent = message;
+// Quotes array with explanations
+const quotes = [
+    { 
+        text: "I’m facing what scares me and asking for truth without hiding.", 
+        explanation: "Confront your fears honestly instead of avoiding them."
+    },
+    { 
+        text: "I don’t want to lose myself to the world — I want to stay awake to who I am.", 
+        explanation: "Stay true to yourself despite external pressures."
+    },
+    { 
+        text: "I’ve walked through the deserts of my mind searching for meaning.", 
+        explanation: "Exploring your thoughts deeply to find purpose."
+    },
+    { 
+        text: "Friend, please don’t take your life away from me.", 
+        explanation: "A reminder to care for friends and support them."
     }
+    // Add more quotes here
+];
 
-    // Background color button
-    colorBtn.addEventListener('click', () => {
-        const randomBg = `hsl(${Math.floor(Math.random() * 360)}, 70%, 80%)`;
-        document.body.style.backgroundColor = randomBg;
-    });
+let currentQuoteIndex = null;
 
-    // Text color button
-    textBtn.addEventListener('click', () => {
-        const randomText = `hsl(${Math.floor(Math.random() * 360)}, 50%, 20%)`;
-        document.body.style.color = randomText;
-    });
+// DOM elements
+const quoteBtn = document.getElementById("quoteBtn");
+const explanationBtn = document.getElementById("explanationBtn");
+const quoteDisplay = document.getElementById("quoteDisplay");
+const explanationDisplay = document.getElementById("explanationDisplay");
 
-    // Alert button (message appears inside website)
-    alertBtn.addEventListener('click', () => {
-        showMessage("Surprise! 🎉");
-    });
+// Show a random quote
+quoteBtn.addEventListener('click', () => {
+    currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+    quoteDisplay.innerHTML = quotes[currentQuoteIndex].text;
+    quoteDisplay.classList.remove("fade");
+    void quoteDisplay.offsetWidth; // trigger reflow for animation
+    quoteDisplay.classList.add("fade");
+    
+    // Clear previous explanation
+    explanationDisplay.innerHTML = "";
+});
 
-    // Random quote button
-    const quotes = [
-        "Keep coding, keep learning!",
-        "Experiment. Fail. Try again.",
-        "Creativity is intelligence having fun.",
-        "Web design is your playground."
-    ];
-    quoteBtn.addEventListener('click', () => {
-        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        showMessage(randomQuote);
-    });
-
-    // Click counter button
-    let count = 0;
-    counterBtn.addEventListener('click', () => {
-        count++;
-        counterBtn.textContent = `Click Me! (${count})`;
-    });
-
+// Show explanation of the current quote
+explanationBtn.addEventListener('click', () => {
+    if(currentQuoteIndex !== null) {
+        explanationDisplay.innerHTML = quotes[currentQuoteIndex].explanation;
+        explanationDisplay.classList.remove("fade");
+        void explanationDisplay.offsetWidth;
+        explanationDisplay.classList.add("fade");
+    } else {
+        explanationDisplay.innerHTML = "Click 'Tell me a quote' first!";
+    }
 });
