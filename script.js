@@ -17,36 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertBtn = document.getElementById('alertBtn');
     const quoteBtn = document.getElementById('quoteBtn');
     const counterBtn = document.getElementById('counterBtn');
-    const popup = document.getElementById('popupMessage');
+    const messageArea = document.getElementById('messageArea');
 
-    // Function to show pop-up messages
-    function showPopup(message) {
-        popup.textContent = message;
-        popup.classList.add('show');
-
-        setTimeout(() => {
-            popup.classList.remove('show');
-        }, 2500); // disappears after 2.5 seconds
+    // Function to display message inside the website
+    function showMessage(message) {
+        messageArea.textContent = message;
     }
 
-    // Background color
+    // Background color button
     colorBtn.addEventListener('click', () => {
         const randomBg = `hsl(${Math.floor(Math.random() * 360)}, 70%, 80%)`;
         document.body.style.backgroundColor = randomBg;
     });
 
-    // Text color
+    // Text color button
     textBtn.addEventListener('click', () => {
         const randomText = `hsl(${Math.floor(Math.random() * 360)}, 50%, 20%)`;
         document.body.style.color = randomText;
     });
 
-    // Alert (popup)
+    // Alert button (message appears inside website)
     alertBtn.addEventListener('click', () => {
-        showPopup("Surprise! 🎉");
+        showMessage("Surprise! 🎉");
     });
 
-    // Random quotes (popup)
+    // Random quote button
     const quotes = [
         "Keep coding, keep learning!",
         "Experiment. Fail. Try again.",
@@ -55,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     quoteBtn.addEventListener('click', () => {
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        showPopup(randomQuote);
+        showMessage(randomQuote);
     });
 
-    // Click counter
+    // Click counter button
     let count = 0;
     counterBtn.addEventListener('click', () => {
         count++;
