@@ -3,17 +3,20 @@ body {
   color: #ffffff;
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .container {
   max-width: 800px;
   text-align: center;
-  padding: 20px;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 button {
@@ -23,24 +26,22 @@ button {
   border: none;
   border-radius: 5px;
   background-color: #ffffff;
-  color: #000000;
+  color: #000;
 }
 
 button:hover {
   background-color: #dddddd;
 }
 
-.quote-box {
-  margin-top: 30px;
-}
-
 #quoteText {
+  margin-top: 30px;
   font-size: 20px;
   font-style: italic;
-  margin-bottom: 15px;
 }
 
 #explanationText {
+  margin-top: 15px;
   font-size: 16px;
   line-height: 1.5;
 }
+
