@@ -35,6 +35,7 @@ const explanationText = document.getElementById("explanationText");
 
 button.addEventListener("click", () => {
   const random = Math.floor(Math.random() * quotes.length);
-  quoteText.textContent = quotes[random].quote;
-  explanationText.textContent = quotes[random].explanation;
+  quoteText.textContent = "Quote: " + quotes[random].quote;
+  explanationText.textContent = "Explanation: " + quotes[random].explanation;
 });
+
